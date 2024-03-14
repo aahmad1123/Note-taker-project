@@ -9,14 +9,18 @@ const app = express();
 
 app.use(express.json());
 
+//enables the use of the static files in the public folder 
 app.use(express.static('public'));
 
+// routing to the index.js file
 app.use('/api', api);
 
+// html route
 app.get('/', (req, res) =>
   res.sendFile(path.join(__dirname, '/public/index.html'))
 );
 
+// html route
 app.get('/notes', (req, res) =>
   res.sendFile(path.join(__dirname, '/public/notes.html'))
 );
